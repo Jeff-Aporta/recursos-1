@@ -4,7 +4,7 @@ const http = require("http");
 const express = require("express");
 const session = require("express-session");
 const passport = require("passport");
-const passportLocal = require("passport-local").Strategy;
+const LocalStrategy  = require("passport-local").Strategy;
 const socketio = require("socket.io");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
@@ -42,14 +42,14 @@ const pack_app = {
 };
 
 passport.use(
-  new passportLocal(
+  new LocalStrategy (
     {
-      usernameField: "ID",
-      passwordField: "clave",
+      usernameField: "username",
+      passwordField: "password",
     },
-    async (ID, clave, done) => {
+    async (username, password, done) => {
       let user = {
-        ID,
+        ID: "jeff",
         clave: "1234",
       };
       if (!user) {

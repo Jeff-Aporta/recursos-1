@@ -1,70 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <%- include(info_pagina.subir_a_raiz+'parcial/head.ejs') %>
-    <title>Iniciar Sesion</title>
-  </head>
-  <body>
-    <style>
-      .contenedor {
-        text-align: center;
-        padding: 15px;
-        &.general {
-          min-height: 95vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        &.inicio-de-sesion {
-          display: inline-block;
-          border: 1px solid lightgray;
-          border-radius: 10px;
-        }
-        .lbl {
-          text-align: left;
-        }
+
+<head>
+  <%- include(info_pagina.subir_a_raiz+'parcial/head.ejs') %>
+  <title>Iniciar Sesion</title>
+</head>
+
+<body>
+  <style>
+    .contenedor {
+      text-align: center;
+      padding: 15px;
+
+      &.general {
+        min-height: 95vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
-    </style>
-    <div class="contenedor general">
-      <div class="contenedor">
-        <form id="form" action="/login" method="post">
-          <div class="bold" style="font-size: 150%">
-            Inicio de sesi&oacute;n
+
+      &.inicio-de-sesion {
+        display: inline-block;
+        border: 1px solid lightgray;
+        border-radius: 10px;
+      }
+
+      .lbl {
+        text-align: left;
+      }
+    }
+  </style>
+
+
+
+  <div class="contenedor general">
+    <div class="contenedor">
+      <form id="form" action="/login" method="POST">
+        <div class="bold" style="font-size: 150%">
+          Inicio de sesi&oacute;n
+        </div>
+        <br />
+        <div class="contenedor inicio-de-sesion">
+          <div class="marca">
+            <a href="/">
+              <img src="/imagenes/svg/logo-principal.svg" width="50" />
+            </a>
+          </div>
+          <div class="lbl">Usuario</div>
+          <input type="text" name="username" class="usuario tamaño-mediano" required/>
+          <br />
+          <br />
+          <div class="lbl">Contraseña</div>
+          <div>
+            <input type="password" name="password" class="contraseña tamaño-mediano" />
+            <label class="mostrar">
+              <input type="checkbox" onchange="accion.input.mostrar_contraseña(this)" required/>
+              M
+            </label>
           </div>
           <br />
-          <div class="contenedor inicio-de-sesion">
-            <div class="marca">
-              <a href="/">
-                <img src="/imagenes/svg/logo-principal.svg" width="50" />
-              </a>
-            </div>
-            <div class="lbl">Usuario</div>
-            <input type="text" name="ID" class="usuario tamaño-mediano" />
-            <br />
-            <br />
-            <div class="lbl">Contraseña</div>
-            <div>
-              <input
-                type="password"
-                name="clave"
-                class="contraseña tamaño-mediano"
-              />
-              <label class="mostrar">
-                <input
-                  type="checkbox"
-                  onchange="accion.input.mostrar_contraseña(this)"
-                />
-                M
-              </label>
-            </div>
-            <br />
-            <br />
-            <div class="boton dodgerblue">
-              <button type="submit">Iniciar sesion</button>
-            </div>
+          <br />
+          <div class="boton dodgerblue">
+            <button type="submit">Iniciar sesion</button>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

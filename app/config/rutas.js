@@ -89,6 +89,7 @@ for (let i = 1; i < 10; i++) {
 }
 
 function buscarRuta(req, res, next) {
+  console.log(req.isAuthenticated());
   let nodos_ruta = [];
   for (let i = 1; i < 10; i++) {
     nodos_ruta.push(req.params[`node${i}`]);
@@ -125,6 +126,9 @@ module.exports = function (app_pack) {
     passport.authenticate("local", {
       successRedirect: "/",
       failureRedirect: "/autenticacion/iniciar-sesion",
-    })
+    }),
+    (req, res) => {
+      console.log(req.user);
+    }
   );
 };
