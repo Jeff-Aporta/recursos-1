@@ -1,0 +1,31 @@
+div {
+  /*Caso para las contraseñas*/
+
+  &:has(input.contraseña):has(label.mostrar) {
+    position: relative;
+    .contraseña {
+      font-family: consolas;
+    }
+    .mostrar {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 10px;
+      border-left: 1px solid lightgrey;
+      background-color: rgba(255, 255, 255, 0.5);
+      color: lightgray;
+      cursor: pointer;
+      & input {
+        display: none;
+      }
+      &:hover,
+      &:has(input:checked) {
+        color: gray;
+      }
+    }
+  }
+}
