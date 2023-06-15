@@ -13,6 +13,8 @@ let input = {
   },
 };
 
-let accion = {
-  input,
+export default {
+  accion: {
+    input,
+  },
 };

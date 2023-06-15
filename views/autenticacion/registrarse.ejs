@@ -5,71 +5,51 @@
     <title>Registrarse</title>
   </head>
   <body>
-    <style>
-      .contenedor {
-        text-align: center;
-        padding: 15px;
-        &.general {
-          min-height: 95vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        &.registro {
-          display: inline-block;
-          border: 1px solid lightgray;
-          border-radius: 10px;
-        }
-        .lbl {
-          text-align: left;
-        }
-      }
-    </style>
-
     <%= JSON.stringify(info_pagina) %> 123
-    <br>
+    <br />
     <%= JSON.stringify(user) %> 123
 
-    <div class="contenedor general">
+    <div class="contenedor pantalla-completa centrar-todo">
       <div class="contenedor">
-          <div class="bold" style="font-size: 150%">Registro</div>
-          <br />
-          <div class="contenedor registro">
-            <div class="marca">
-              <a href="/">
-                <img src="/imagenes/svg/logo-principal.svg" width="50" />
-              </a>
-            </div>
-            <div class="lbl">Usuario</div>
-            <input
-              type="text"
-              class="usuario tamaño-mediano"
-              required
-            />
-            <br />
-            <br />
-            <div class="lbl">Contraseña</div>
-            <div>
-              <input
-                type="password"
-                class="contraseña tamaño-mediano"
-                required
-              />
-              <label class="mostrar">
-                <input
-                  type="checkbox"
-                  onchange="accion.input.mostrar_contraseña(this)"
-                />
-                M
-              </label>
-            </div>
-            <br />
-            <br />
-            <div class="boton dodgerblue">
-              Registrarse
-            </div>
+        <div class="bold" style="font-size: 150%">Registro</div>
+        <br />
+        <div class="contenedor bordeado">
+          <div class="marca">
+            <a href="/">
+              <img src="/imagenes/svg/logo-principal.svg" width="50" />
+            </a>
           </div>
+          <div class="lbl">Usuario</div>
+          <input type="text" class="nombre tamaño-mediano" />
+          <br />
+          <br />
+          <div class="lbl">Contraseña</div>
+          <div>
+            <input type="password" class="contraseña tamaño-mediano" />
+            <label class="mostrar">
+              <input
+                type="checkbox"
+                onchange="accion.input.mostrar_contraseña(this)"
+              />
+              M
+            </label>
+          </div>
+          <br />
+          <br />
+          <div class="boton dodgerblue" onclick="crear_usuario()">
+            Registrarse
+          </div>
+        </div>
       </div>
     </div>
+
+    <script>
+      function crear_usuario() {
+        socket.emit("crear usuario", {
+          nombre: document.querySelector("input.nombre").value,
+          contraseña: document.querySelector("input.contraseña").value,
+        });
+      }
+    </script>
   </body>
 </html>

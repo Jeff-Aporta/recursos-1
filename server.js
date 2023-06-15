@@ -29,13 +29,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-const zip = require("./app/archivos/zip")();
-const archivos = require("./app/archivos/manejo");
+const archivos = require("./app/archivos");
 
 const pack_app = {
   io,
   app,
-  zip,
   passport,
   archivos,
   urlencodedParser,
@@ -47,15 +45,12 @@ passport.use(
       usernameField: "username",
       passwordField: "password",
     },
-    async (username, password, done) => {
-      let user = {
-        ID: "jeff",
-        clave: "1234",
-      };
+    async (username, contraseña, done) => {
+      let user = archivos.manejo.usuarios.perfil(username);
       if (!user) {
         return done(null, false);
       }
-      if (user.clave != clave) {
+      if (user.contraseña != contraseña) {
         return done(null, false);
       }
       return done(null, user);

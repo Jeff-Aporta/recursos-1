@@ -32,34 +32,40 @@ input {
 }
 
 .boton {
-    padding: 7px 15px;
-    display: inline-block;
-    cursor: pointer;
-    border-radius: 5px;
+  padding: 7px 15px;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 5px;
 
-    &:hover {
-      filter: brightness(1.2);
-    }
+  &:hover {
+    filter: brightness(1.2);
+  }
 
-    &.dodgerblue {
-      background-color: dodgerblue;
-      color: white;
-    }
+  &.dodgerblue {
+    background-color: dodgerblue;
+    color: white;
+  }
 
-    &:has(button) {
-      padding: 0;
-      & button {
-        background: none;
-        border: none;
-        padding: 7px 15px;
-        cursor: inherit;
-        color: inherit;
-      }
+  &:has(button) {
+    padding: 0;
+    & button {
+      background: none;
+      border: none;
+      padding: 7px 15px;
+      cursor: inherit;
+      color: inherit;
     }
   }
+}
 
 .bold {
   font-family: Roboto-Bold;
+}
+
+.centrar-todo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner-superior {
@@ -74,5 +80,24 @@ input {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+
+.contenedor {
+  text-align: center;
+  padding: 15px;
+
+  &.pantalla-completa {
+    min-height: 95vh;
+  }
+  
+  &.bordeado {
+    display: inline-block;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+  }
+
+  .lbl {
+    text-align: left;
   }
 }

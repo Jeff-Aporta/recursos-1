@@ -209,6 +209,9 @@ const {
   }
   
   async function crear_carpeta(ruta) {
+    if (existe(ruta)) {
+      return;
+    }
     if (ruta.includes("/")) {
       ruta = ruta.split("/");
     }
@@ -253,10 +256,6 @@ const {
         return true;
       }
     } catch (error) {
-      console.log(
-        "Ocurrió un problema al verificar la existencia del archivo\n",
-        error.message
-      );
     }
     return false;
   }
